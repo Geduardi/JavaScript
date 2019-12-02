@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		//Задание 1
+		console.log('Задание 1');
+		let n = 100;
+		let i = 1;
+		while (i < n + 1) {
+			let isSimple = true;
+			j = 2;
+			while (j < i) {
+				if (i % j == 0) {
+					isSimple = false;
+					break;
+				}
+				j++;
+			}
+			if (isSimple) console.log(i);
+			i++;
+		}
+
+		//Задание 2
+		console.log('Задание 2');
+
+		function countBasketPrice(cart) {
+			let sum = 0;
+			for (let i = 0; i < cart.length; i++) {
+				sum += cart[i][1];
+			}
+			return sum;
+		}
+
+		let cart = [];
+		n = Math.floor(Math.random() * 9 + 1);
+		for (let i = 1; i <= n; i++) {
+			cart.push([`Item-${i}`, Math.floor(Math.random() * 100)]);
+		}
+		console.log(cart);
+		console.log(countBasketPrice(cart));
+
+
+		//Задание 3
+		console.log('Задание 3');
+		for (let i = 0; i < 10; console.log(i), i++) {}
+		// Задание 4
+		console.log('Задание 4');
+		n = 20;
+		for (let i = 1; i <= n; i++) {
+			let string = '';
+			for (let j = 0; j < i; j++) {
+				string += 'x';
+			}
+			console.log(string);
+		}
+	</script>
+</body>
+
+</html>
