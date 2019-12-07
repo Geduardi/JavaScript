@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		console.log('Задание 1');
+
+		function randomNumber(nMax) {
+			return Math.floor(Math.random() * nMax);
+		}
+
+		function numToObj(n) {
+			console.log(n);
+			if (n > 999) return 'Введено число больше 999. Нужно меньше.';
+			return numObj = {
+				'единицы': n % 10,
+				'десятки': parseInt(n / 10) % 10,
+				'сотни': parseInt(n / 100),
+			}
+		}
+
+		console.log((numToObj(randomNumber(999))));
+
+		console.log('Задание 2');
+		const cartItem_1 = {
+			name: 'Холодильник',
+			price: 10000,
+			count: 1,
+		}
+		const cartItem_2 = {
+			name: 'Телевизор',
+			price: 5000,
+			count: 3,
+		}
+		const cart = {
+			cartItem_1,
+			cartItem_2,
+			priceSum() {
+				let sum = 0;
+
+				for (let prop in this) {
+					if (isNaN(this[prop]['price'])) continue; //Делается лишняя итерация по методу, но не смог придумать метод поэффективнее
+					sum += this[prop]['price'];
+				};
+				return sum;
+			}
+		}
+		console.log(cart.priceSum());
+
+		//Задание 3.
+		/*
+		Что-то вроде этого:
+		const product = {
+			name - имя
+			price - цена
+			stockCount - количество на складе
+			sellCount - количество покупок (для сортировки в каталоге по популярности)
+			registerDate - дата добавления на сайт (для сортировки в каталоге новинкам)
+			location/country - страна, где товар, для рассчета времени доставки в корзине, либо страна производителя для фильтра в каталоге
+			rating - рейтинг товара в магазине
+		}
+		*/
+	</script>
+</body>
+
+</html>
