@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.chessMap {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.chessMap td {
+  width: 10vh;
+  text-align: center;
+  outline: 1px solid black;
+}
+
+.chessMap tr {
+  height: 10vh;
+}
+/*# sourceMappingURL=style.css.map */

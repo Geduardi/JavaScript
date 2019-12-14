@@ -1,0 +1,20 @@
+$height: 10vh;
+$width: $height;
+*{
+	margin: 0;
+	padding: 0;
+}
+.chessMap {
+	margin: 0 auto;
+	border-collapse: collapse;
+
+	& td {
+		width: $width;
+		text-align: center;
+		outline: 1px solid black;
+	}
+
+	& tr {
+		height: $height;
+	}
+}
