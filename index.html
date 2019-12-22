@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		if (!("a" in window)) {
+			var a = 1;
+		}
+		alert(a);// undefiend, т.к. условие if проверяется до объявления "а", а значит в window его ещё нет, и условие будет false, "а" не будет объявлена
+		var b = function a(x) {
+			x && a(--x);
+		};
+		alert(a);// не выведется, т.к. название функции "а" существует только внутри самой функции
+
+		function a(x) {
+			return x * 2;
+		}
+		var a;
+		alert(a);// выведет код функции "а"
+
+		function b(x, y, a) {
+			arguments[2] = 10;
+			alert(a);// 10, т.к. внутри функции arguments[2] это "а"
+		}
+		b(1, 2, 3);
+
+		function a() {
+			alert(this);
+		}
+		a.call(null);//контекст вызова не указан, поэтому функция выполняется в контексте window, выведется объект window
+	</script>
+</body>
+
+</html>
