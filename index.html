@@ -4,17 +4,49 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+    integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous">
+  </script>
   <title>Интернет-магазин</title>
 </head>
 
 <body>
-  <header class="cart container">
-    <button class="btn-cart" type="button">Корзина</button>
-    <div class="cart-block invisible"></div>
-  </header>
-  <main class="container">
-    <div class="products"></div>
-  </main>
+  <div id="app">
+    <header class="cart">
+      <div class="container">
+        <button class="btn btn-cart" type="button" @click="isVisibleCart = !isVisibleCart">Корзина</button>
+        <div class="cart-block" v-show="isVisibleCart">
+          <div class="cart-products" v-if="goodsList.length > 0">
+            <div class="cart-product"></div>
+          </div>
+          <div class="cart-products" v-else>
+            <h4>Нет данных</h4>
+          </div>
+        </div>
+        <form action="#" class="search-form">
+          <input type="text" class="search-field" v-model="searchLine">
+          <button class="btn btn-search" type="submit" @click="filterGoods()">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </header>
+    <main>
+      <div class="products">
+        <div class="products-flex container">
+          <div class="product-item" v-for="product of products" :key="product.id_product">
+            <img :src="imgCatalog" alt="Some img">
+            <div class="desc">
+              <h3>{{product.product_name}}</h3>
+              <p>{{product.price}}₽</p>
+              <button class="btn buy-btn" @click="addProduct(product)">Купить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="./js/main.js"></script>
 </body>
 
