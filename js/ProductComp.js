@@ -3,14 +3,8 @@ Vue.component('products', {
         return {
             catalogUrl: '/catalogData.json',
             products: [],
-            filtered: [],
             imgCatalog: 'https://placehold.it/200x150',
-        }
-    },
-    methods: {
-        filterGoods() {
-            let regexp = new RegExp(this.searchLine, 'i');
-            this.filtered = this.products.filter(el => regexp.test(el.product_name))
+            filtered: []
         }
     },
     mounted() {
@@ -22,13 +16,14 @@ Vue.component('products', {
                 }
             });
     },
-    template: `
-        <div class="products">
-            <div class = "products-flex container">
-                <product v-for="item of filtered" :key="item.id_product" :img="imgCatalog" :product="item"></product>
-            </div>
-        </div>
-    `
+    template: `<div>
+                <search ref="search"></search>
+                <div class="products">
+                    <div class = "products-flex container">
+                        <product v-for="item of filtered" :key="item.id_product" :img="imgCatalog" :product="item"></product>
+                    </div>
+                </div>
+            </div>`
 });
 
 Vue.component('product', {
